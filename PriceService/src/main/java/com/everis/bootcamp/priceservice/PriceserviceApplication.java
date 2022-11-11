@@ -15,7 +15,7 @@ public class PriceserviceApplication {
 
 	@RequestMapping("/")
 	public String home() {
-		return "Hello, world! \n PriceeServiceApplication";
+		return "Hello, world! \n PriceServiceApplication";
 	}
 
 }

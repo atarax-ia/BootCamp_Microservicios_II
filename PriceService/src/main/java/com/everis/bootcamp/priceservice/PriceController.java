@@ -1,36 +1,38 @@
 package com.everis.bootcamp.priceservice;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 public class PriceController {
-    private final PriceRepository repository;
 
-    public PriceController(PriceRepository repository) {
-        this.repository = repository;
+    @Autowired
+    private PriceService priceService;
+
+    @GetMapping        // == @GetMapping("/")
+    public ResponseEntity<List<Price>> findAll() {
+
+        return ResponseEntity.ok(priceService.findAll());
     }
 
-    @GetMapping("/")
-    public List<Price> findAll() {
+    @PostMapping        // == @PostMapping("/")
+    public ResponseEntity<Price> insert(@RequestBody final Price newPrice) {
 
-        return repository.findAll();
-    }
-
-    @PostMapping("/")
-    public Price insert(@RequestBody Price newPrice) {
-        return this.repository.save(newPrice);
+        return (newPrice != null && newPrice.getProductId() != null)
+                ? ResponseEntity.ok(this.priceService.insert(newPrice))
+                : ResponseEntity.badRequest().build();
     }
 
     @GetMapping("/{id}")
-    public Price findOne(@PathVariable Integer id) {
-        Price pr = new Price(0,0);
-        pr.setProductId(0);
-        try {
-            return this.repository.findById(id).orElseThrow(() -> new PriceNotFoundException(id));
-        } catch (PriceNotFoundException exc) {
-            return pr;
+    public ResponseEntity<Price> findOne(@PathVariable final Integer productId) {
+        if(productId == 0) {
+            throw new IllegalArgumentException();
         }
+        return (productId != null)
+                ? ResponseEntity.ok(priceService.findOne(productId))
+                : ResponseEntity.badRequest().build();
     }
 }

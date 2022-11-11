@@ -8,8 +8,6 @@ import java.util.Objects;
 @Entity
 public class Price {
 
-    @Id
-    @GeneratedValue
     private Integer productId;
 
     private Integer priceValue;
