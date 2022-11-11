@@ -1,4 +1,4 @@
-package com.everis.bootcamp.priceservice;
+package com.everis.bootcamp.productservice;
 
 import java.util.Objects;
 

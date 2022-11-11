@@ -1,1 +1,19 @@
+server:
+  port: 8191
 
+app:
+  everis:
+    bootcamp:
+      services:
+        price:
+          endpoint: http://localhost:8190/
+          type: remote # in-memory, remote
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+
+spring:
+  application:
+    name: productservice

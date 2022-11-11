@@ -27,12 +27,12 @@ public class PriceController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Price> findOne(@PathVariable final Integer productId) {
-        if(productId == 0) {
+    public ResponseEntity<Price> findOne(@PathVariable final Integer id) {
+        if(id == 0) {
             throw new IllegalArgumentException();
         }
-        return (productId != null)
-                ? ResponseEntity.ok(priceService.findOne(productId))
+        return (id != null)
+                ? ResponseEntity.ok(priceService.findOne(id))
                 : ResponseEntity.badRequest().build();
     }
 }
