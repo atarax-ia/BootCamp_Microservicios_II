@@ -17,12 +17,3 @@ eureka:
 spring:
   application:
     name: productservice
-
-management:
-  endpoint:
-    web:
-      exposure:
-        include: '*'
-  endpoint:
-    health:
-      show-details: ALWAYS
