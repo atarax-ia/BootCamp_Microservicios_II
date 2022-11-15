@@ -9,3 +9,12 @@ eureka:
 spring:
   application:
     name: priceservice
+
+management:
+  endpoint:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: ALWAYS
