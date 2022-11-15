@@ -13,9 +13,9 @@ public class EmployeeserviceApplication {
 		SpringApplication.run(EmployeeserviceApplication.class, args);
 	}
 
-	@RequestMapping("/")
+	@RequestMapping("/employee/msg")
 	public String home() {
-		return "Hello, world! \n EmployeeServiceApplication";
+		return "Employee Service Application is running";
 	}
 
 }

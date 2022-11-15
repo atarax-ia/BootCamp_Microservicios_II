@@ -9,6 +9,10 @@ eureka:
 spring:
   application:
     name: employeeservice
+  boot:
+    admin:
+      client:
+        url: [http://localhost:8080]
 
 management:
   endpoints:

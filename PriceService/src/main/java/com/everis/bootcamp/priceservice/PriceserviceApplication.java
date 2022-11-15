@@ -6,10 +6,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @SpringBootApplication
+//@RestController
 public class PriceserviceApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(PriceserviceApplication.class, args);
 	}
+
+//	@RequestMapping("/price/msg")
+//	public String home() {
+//		return "Price Service Application is running";
+//	}
 
 }

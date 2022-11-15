@@ -17,6 +17,10 @@ eureka:
 spring:
   application:
     name: productservice
+  boot:
+    admin:
+      client:
+        url: [http://localhost:8080]
 
 management:
   endpoints:
